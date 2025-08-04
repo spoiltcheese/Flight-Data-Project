@@ -10,7 +10,6 @@ import {
 
 //import { getLatestFlights } from "../services/GetLatestFlights";
 import testData from "../services/testData";
-import storeFavourites from "../services/StoreFavourites";
 import Flight from "./Flight";
 
 const LatestFlights = () => {

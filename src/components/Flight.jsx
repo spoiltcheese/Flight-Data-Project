@@ -1,5 +1,5 @@
 import React from "react";
-import storeFavourites from "../services/StoreFavourites";
+import { storeFavourites } from "../services/FavouriteService";
 
 import {
   useQuery,
