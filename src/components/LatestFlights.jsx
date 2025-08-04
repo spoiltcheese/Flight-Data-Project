@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import {
   useQuery,
@@ -8,40 +8,46 @@ import {
   QueryClientProvider,
 } from "@tanstack/react-query";
 
-import { getLatestFlights } from "../services/GetLatestFlights";
+//import { getLatestFlights } from "../services/GetLatestFlights";
+import testData from "../services/testData";
+import storeFavourites from "../services/StoreFavourites";
+import Flight from "./Flight";
 
 const LatestFlights = () => {
   const queryClient = useQueryClient();
   const [flightData, setFlightData] = useState({});
+  const [name, setName] = useState("");
 
-  const flightQuery = useQuery({
-    queryKey: ["latestFlights"],
-    queryFn: getLatestFlights,
-  });
+  const nameRef = useRef();
+
+  // const flightQuery = useQuery({
+  //   queryKey: ["latestFlights"],
+  //   queryFn: getLatestFlights,
+  // });
+
+  // const getName = (name) => {
+  //   setName(name);
+  // };
 
   return (
     <>
-      "jaksljas"
-      {flightQuery.isSuccess &&
+      {/* {flightQuery.isSuccess &&
         Array.isArray(flightQuery.data?.data) &&
         flightQuery.data.data.map((flight, index) => {
           return (
             <div className="row" key={index}>
-              <div className="col-md-1">q 7682362761q3</div>
-              <div className="col-md-1">{flight.flight_status}</div>
-              <div className="col-md-1">{flight.departure?.airport}</div>
-              <div className="col-md-1">{flight.departure?.terminal}</div>
-              <div className="col-md-1">{flight.departure?.gate}</div>
-              <div className="col-md-1">{flight.departure?.scheduled}</div>
-              <div className="col-md-1">{flight.departure?.actual}</div>
-              <div className="col-md-1">{flight.arrival?.airport}</div>
-              <div className="col-md-1">{flight.arrival?.terminal}</div>
-              <div className="col-md-1">{flight.arrival?.gate}</div>
-              <div className="col-md-1">{flight.arrival?.scheduled}</div>
-              <div className="col-md-1">{flight.arrival?.actual}</div>
+            <Flight flight={flight} />
             </div>
           );
-        })}
+        })} */}
+
+      {testData.data.map((flight, index) => {
+        return (
+          <div className="row" key={index}>
+            <Flight flight={flight} />
+          </div>
+        );
+      })}
     </>
   );
 };

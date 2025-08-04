@@ -1,4 +1,4 @@
-const testDate = JSON.parse(`{
+const testData = JSON.parse(`{
     "pagination": {
         "limit": 100,
         "offset": 0,
@@ -4986,3 +4986,5 @@ const testDate = JSON.parse(`{
         }
     ]
 }`);
+
+export default testData;
