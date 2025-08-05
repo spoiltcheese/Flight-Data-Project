@@ -13,7 +13,6 @@ import testData from "../services/testData";
 import Flight from "./Flight";
 
 const LatestFlights = () => {
-  const [flightData, setFlightData] = useState({});
   const [name, setName] = useState("");
 
   const nameRef = useRef();
@@ -39,10 +38,14 @@ const LatestFlights = () => {
           );
         })} */}
 
+      {name ? (
+        <div className="favourite-message">{`${name} added to favourites`}</div>
+      ) : null}
+
       {testData.data.map((flight, index) => {
         return (
           <div className="row" key={index}>
-            <Flight flight={flight} />
+            <Flight flight={flight} setName={(name) => setName(name)} />
           </div>
         );
       })}

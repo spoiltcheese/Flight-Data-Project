@@ -12,11 +12,13 @@ const Flight = (props) => {
     mutationFn: (name) => storeFavourites(name),
     onSuccess: () => {
       queryClient.invalidateQueries(["favourites"]);
+      props.setName(props.flight.flight.iata);
     },
   });
 
   Flight.propTypes = {
     flight: PropTypes.object,
+    setName: PropTypes.func,
   };
   return (
     <>
