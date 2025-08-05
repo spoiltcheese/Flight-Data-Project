@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { Routes, Route, Navigate } from "react-router";
 import LatestFlights from "./components/LatestFlights";
 import NavBar from "./components/NavBar";
+import AllFavourites from "./components/AllFavourites";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate replace to="/flights" />} />
           <Route path="/flights" element={<LatestFlights />} />
+          <Route path="/favourites" element={<AllFavourites />} />
         </Routes>
       </Suspense>
     </div>

@@ -1,21 +1,23 @@
 import React from "react";
 import { storeFavourites } from "../services/FavouriteService";
 
-import {
-  useQuery,
-  useQueryClient,
-  useMutation,
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query";
+import { useQueryClient, useMutation } from "@tanstack/react-query";
+
+import PropTypes from "prop-types";
 
 const Flight = (props) => {
+  const queryClient = useQueryClient();
+
   const doGetName = useMutation({
     mutationFn: (name) => storeFavourites(name),
     onSuccess: () => {
       queryClient.invalidateQueries(["favourites"]);
     },
   });
+
+  Flight.propTypes = {
+    flight: PropTypes.object,
+  };
   return (
     <>
       <button

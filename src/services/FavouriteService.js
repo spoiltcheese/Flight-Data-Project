@@ -39,7 +39,7 @@ const storeFavourites = async (data) => {
   }
 };
 
-const getFavourites = async (data) => {
+const getFavourites = async () => {
   try {
     const res = await fetch(uri, {
       method: "GET",
@@ -58,4 +58,27 @@ const getFavourites = async (data) => {
   }
 };
 
-export { storeFavourites, getFavourites };
+const delFavourite = async (data) => {
+  try {
+    let fullURI = uri + "/" + data;
+
+    console.log(data);
+
+    const res = await fetch(fullURI, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_APITOKEN}`,
+        "Content-Type": "application/json",
+      },
+    });
+    const responseData = await res.json();
+    if (!res.ok) {
+      throw new Error("Failed to add favourite.");
+    }
+    return responseData;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export { storeFavourites, getFavourites, delFavourite };

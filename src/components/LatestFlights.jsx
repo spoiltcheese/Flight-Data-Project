@@ -13,7 +13,6 @@ import testData from "../services/testData";
 import Flight from "./Flight";
 
 const LatestFlights = () => {
-  const queryClient = useQueryClient();
   const [flightData, setFlightData] = useState({});
   const [name, setName] = useState("");
 

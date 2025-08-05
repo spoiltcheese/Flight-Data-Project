@@ -1,7 +1,46 @@
 import React from "react";
 
-const Favourite = () => {
-  return <div></div>;
+import { useQueryClient, useMutation } from "@tanstack/react-query";
+
+import { delFavourite } from "../services/FavouriteService";
+
+import PropTypes from "prop-types";
+
+const Favourite = (props) => {
+  const queryClient = useQueryClient();
+
+  const doDelete = useMutation({
+    mutationFn: (name) => delFavourite(name),
+    onSuccess: () => {
+      queryClient.invalidateQueries(["favourites"]);
+    },
+  });
+
+  Favourite.propTypes = {
+    flight: PropTypes.object,
+  };
+  return (
+    <>
+      <button
+        className="col-md-1 btn btn-danger"
+        onClick={() => doDelete.mutate(props.flight.id)}
+      >
+        Delete
+      </button>
+      <div className="col-md-1">{props.flight.fields.FlightNumber}</div>
+      <div className="col-md-1">{props.flight.fields.Status}</div>
+      <div className="col-md-1">{props.flight.fields.DepartureAirport}</div>
+      <div className="col-md-1">{props.flight.fields.DepartureTerminal}</div>
+      <div className="col-md-1">{props.flight.fields.DepartureGate}</div>
+      <div className="col-md-1">{props.flight.fields.DepartureScheduled}</div>
+      <div className="col-md-1">{props.flight.fields.DepartureActual}</div>
+      <div className="col-md-1">{props.flight.fields.ArrivalAirport}</div>
+      <div className="col-md-1">{props.flight.fields.ArrivalTerminal}</div>
+      <div className="col-md-1">{props.flight.fields.ArrivalGate}</div>
+      <div className="col-md-1">{props.flight.fields.ArrivalScheduled}</div>
+      <div className="col-md-1">{props.flight.fields.ArrivalActual}</div>
+    </>
+  );
 };
 
 export default Favourite;

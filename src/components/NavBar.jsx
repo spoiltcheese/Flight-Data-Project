@@ -8,6 +8,9 @@ const NavBar = () => {
         <li>
           <Link to="/">Flights</Link>
         </li>
+        <li>
+          <Link to="/favourites">Favourites</Link>
+        </li>
       </ul>
     </nav>
   );
