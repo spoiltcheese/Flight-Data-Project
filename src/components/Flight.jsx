@@ -20,13 +20,15 @@ const Flight = (props) => {
   };
   return (
     <>
-      <button
-        className="col-md-1 btn btn-primary"
-        onClick={() => doGetName.mutate(props.flight)}
-      >
-        Add Favourite
-      </button>
-      <div className="col-md-1">{props.flight.flight.iata}</div>
+      <div className="col-md-1">
+        <button
+          className="btn btn-primary"
+          onClick={() => doGetName.mutate(props.flight)}
+        >
+          Add Favourite
+        </button>
+        {props.flight.flight.iata}
+      </div>
       <div className="col-md-1">{props.flight.flight_status}</div>
       <div className="col-md-1">{props.flight.departure.airport}</div>
       <div className="col-md-1">{props.flight.departure.terminal}</div>

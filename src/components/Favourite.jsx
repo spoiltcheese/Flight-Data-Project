@@ -21,13 +21,15 @@ const Favourite = (props) => {
   };
   return (
     <>
-      <button
-        className="col-md-1 btn btn-danger"
-        onClick={() => doDelete.mutate(props.flight.id)}
-      >
-        Delete
-      </button>
-      <div className="col-md-1">{props.flight.fields.FlightNumber}</div>
+      <div className="col-md-1">
+        <button
+          className="btn btn-danger"
+          onClick={() => doDelete.mutate(props.flight.id)}
+        >
+          Delete
+        </button>
+        {props.flight.fields.FlightNumber}
+      </div>
       <div className="col-md-1">{props.flight.fields.Status}</div>
       <div className="col-md-1">{props.flight.fields.DepartureAirport}</div>
       <div className="col-md-1">{props.flight.fields.DepartureTerminal}</div>
