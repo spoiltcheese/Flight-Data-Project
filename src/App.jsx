@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router";
 import LatestFlights from "./components/LatestFlights";
 import NavBar from "./components/NavBar";
@@ -12,11 +12,20 @@ function App() {
     import.meta.env.VITE_AIRTABLE_DEFAULT_LIST_ID
   );
 
+  const [currentListName, setCurrentListName] = useState(() => {
+    const savedData = sessionStorage.getItem("currentListName");
+    return savedData ? JSON.parse(savedData) : "DefaultList";
+  });
+
+  useEffect(() => {
+    sessionStorage.setItem("currentListName", JSON.stringify(currentListName));
+  }, [currentListName]);
+
   console.log("Current List ID:", currentList);
 
-  function FavouritesWithParams({ setCurrentList }) {
+  function FavouritesWithParams() {
     const { listID } = useParams();
-    return <AllFavourites id={listID} setCurrentList={setCurrentList} />;
+    return <AllFavourites id={listID} />;
   }
 
   FavouritesWithParams.propTypes = {
@@ -26,7 +35,7 @@ function App() {
   return (
     <div>
       <Suspense fallback={<p>Loading...</p>}>
-        <NavBar />
+        <NavBar listName={currentListName} />
         <Routes>
           <Route path="/" element={<Navigate replace to="/flights" />} />
           <Route path="/flights" element={<LatestFlights />} />
@@ -40,12 +49,17 @@ function App() {
           />
           <Route
             path="/favourites/:listID"
-            element={<FavouritesWithParams setCurrentList={setCurrentList} />}
+            element={<FavouritesWithParams />}
           />
           {/* <Route path="/favourites" element={<AllFavourites />} /> */}
           <Route
             path="/lists"
-            element={<AllLists setCurrentList={(id) => setCurrentList(id)} />}
+            element={
+              <AllLists
+                setCurrentList={(id) => setCurrentList(id)}
+                setName={(name) => setCurrentListName(name)}
+              />
+            }
           />
         </Routes>
       </Suspense>

@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 const NavBar = (props) => {
   NavBar.propTypes = {
     id: PropTypes.string.isRequired,
+    listName: PropTypes.string.isRequired,
   };
 
   return (
@@ -33,10 +34,9 @@ const NavBar = (props) => {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/favourites">
-                Favourites
+                Favourites ({props.listName})
               </Link>
             </li>
-
             <li className="nav-item">
               <Link className="nav-link" to="/lists">
                 Lists
