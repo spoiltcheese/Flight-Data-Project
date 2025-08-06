@@ -20,3 +20,11 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.centerText {
+  text-align: center;
+}
+
+.even {
+  background-color: rgb(181, 181, 181);
+}

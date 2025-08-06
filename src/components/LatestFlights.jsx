@@ -45,14 +45,14 @@ const LatestFlights = () => {
         >{`${name} added to favourites`}</div>
       ) : null}
 
-      <div className="row" style={{ textAlign: "center" }}>
+      <div className="row centerText" style={{ textAlign: "center" }}>
         <div className="col-md-3">Flight</div>
         <div className="col-md-4">Departure</div>
         <div className="col-md-4">Arrival</div>
         <div className="col-md-1">&nbsp;</div>
       </div>
 
-      <div className="row" style={{ textAlign: "center" }}>
+      <div className="row centerText">
         <div className="col-md-1">&nbsp;</div>
         <div className="col-md-1">Number</div>
         <div className="col-md-1">Status</div>
@@ -70,7 +70,7 @@ const LatestFlights = () => {
 
       {testData.data.map((flight, index) => {
         return (
-          <div className="row" key={index}>
+          <div className={`row ${index % 2 === 0 ? " even" : ""}`} key={index}>
             <Flight flight={flight} setName={(name) => setName(name)} />
           </div>
         );
