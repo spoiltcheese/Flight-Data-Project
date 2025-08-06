@@ -28,19 +28,19 @@ const Favourite = (props) => {
         >
           Delete
         </button>
-        {props.flight.fields.FlightNumber}
       </div>
+      <div className="col-md-1">{props.flight.fields.FlightNumber}</div>
       <div className="col-md-1">{props.flight.fields.Status}</div>
       <div className="col-md-1">{props.flight.fields.DepartureAirport}</div>
       <div className="col-md-1">{props.flight.fields.DepartureTerminal}</div>
       <div className="col-md-1">{props.flight.fields.DepartureGate}</div>
       <div className="col-md-1">{props.flight.fields.DepartureScheduled}</div>
-      <div className="col-md-1">{props.flight.fields.DepartureActual}</div>
+      {/* <div className="col-md-1">{props.flight.fields.DepartureActual}</div> */}
       <div className="col-md-1">{props.flight.fields.ArrivalAirport}</div>
       <div className="col-md-1">{props.flight.fields.ArrivalTerminal}</div>
       <div className="col-md-1">{props.flight.fields.ArrivalGate}</div>
       <div className="col-md-1">{props.flight.fields.ArrivalScheduled}</div>
-      <div className="col-md-1">{props.flight.fields.ArrivalActual}</div>
+      {/* <div className="col-md-1">{props.flight.fields.ArrivalActual}</div> */}
     </>
   );
 };

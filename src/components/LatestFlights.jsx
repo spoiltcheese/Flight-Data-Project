@@ -45,7 +45,7 @@ const LatestFlights = () => {
         >{`${name} added to favourites`}</div>
       ) : null}
 
-      <div className="row centerText" style={{ textAlign: "center" }}>
+      <div className="row centerText">
         <div className="col-md-3">Flight</div>
         <div className="col-md-4">Departure</div>
         <div className="col-md-4">Arrival</div>
