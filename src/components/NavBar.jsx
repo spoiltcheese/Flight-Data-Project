@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router";
+import PropTypes from "prop-types";
 
-const NavBar = () => {
+const NavBar = (props) => {
+  NavBar.propTypes = {
+    id: PropTypes.string.isRequired,
+  };
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">

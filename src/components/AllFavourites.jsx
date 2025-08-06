@@ -4,11 +4,16 @@ import { useQuery } from "@tanstack/react-query";
 
 import { getFavourites } from "../services/FavouriteService";
 import Favourite from "./Favourite";
+import PropTypes from "prop-types";
 
-const AllFavourites = () => {
+const AllFavourites = (props) => {
+  AllFavourites.propTypes = {
+    id: PropTypes.string.isRequired,
+  };
+
   const favQuery = useQuery({
-    queryKey: ["favourites"],
-    queryFn: getFavourites,
+    queryKey: ["favourites", props.id],
+    queryFn: () => getFavourites(props.id),
   });
 
   return (

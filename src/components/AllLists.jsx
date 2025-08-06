@@ -18,7 +18,7 @@ const AllLists = () => {
           return (
             <div className="row" key={index}>
               <div className="col-md-2">
-                <a href={`../list/${list.fields.ListID}`}>
+                <a href={`../favourites/${list.fields.ListID}`}>
                   {list.fields.ListName}
                 </a>
               </div>

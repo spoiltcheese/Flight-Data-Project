@@ -1,6 +1,7 @@
 const uri =
   import.meta.env.VITE_AIRTABLE_BASE_URI +
   import.meta.env.VITE_AIRTABLE_BASE_ID +
+  "/" +
   import.meta.env.VITE_AIRTABLE_LIST_TABLE_ID;
 
 const storeList = async (data) => {

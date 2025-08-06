@@ -1,6 +1,6 @@
-const uri = import.meta.env.VITE_AIRTABLE_URI;
-
 const storeFavourites = async (data) => {
+  const uri = import.meta.env.VITE_AIRTABLE_URI;
+
   try {
     const res = await fetch(uri, {
       method: "POST",
@@ -39,7 +39,12 @@ const storeFavourites = async (data) => {
   }
 };
 
-const getFavourites = async () => {
+const getFavourites = async (id) => {
+  const uri =
+    import.meta.env.VITE_AIRTABLE_BASE_URI +
+    import.meta.env.VITE_AIRTABLE_BASE_ID +
+    "/" +
+    id;
   try {
     const res = await fetch(uri, {
       method: "GET",
