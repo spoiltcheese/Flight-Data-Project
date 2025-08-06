@@ -28,7 +28,7 @@ const LatestFlights = () => {
 
   return (
     <>
-      {/* {flightQuery.isSuccess &&
+      {/*flightQuery.isSuccess &&
         Array.isArray(flightQuery.data?.data) &&
         flightQuery.data.data.map((flight, index) => {
           return (
@@ -39,8 +39,34 @@ const LatestFlights = () => {
         })} */}
 
       {name ? (
-        <div className="favourite-message">{`${name} added to favourites`}</div>
+        <div
+          className="favourite-message"
+          style={{ textAlign: "center" }}
+        >{`${name} added to favourites`}</div>
       ) : null}
+
+      <div className="row" style={{ textAlign: "center" }}>
+        <div className="col-md-3">Flight</div>
+        <div className="col-md-4">Departure</div>
+        <div className="col-md-4">Arrival</div>
+        <div className="col-md-1">&nbsp;</div>
+      </div>
+
+      <div className="row" style={{ textAlign: "center" }}>
+        <div className="col-md-1">&nbsp;</div>
+        <div className="col-md-1">Number</div>
+        <div className="col-md-1">Status</div>
+        <div className="col-md-1">Airport</div>
+        <div className="col-md-1">Terminal</div>
+        <div className="col-md-1">Gate</div>
+        <div className="col-md-1">Scheduled</div>
+        {/* <div className="col-md-1">Actual</div> */}
+        <div className="col-md-1">Airport</div>
+        <div className="col-md-1">Terminal</div>
+        <div className="col-md-1">Gate</div>
+        <div className="col-md-1">Scheduled</div>
+        {/* <div className="col-md-1">Actual</div> */}
+      </div>
 
       {testData.data.map((flight, index) => {
         return (
