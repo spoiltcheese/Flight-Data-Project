@@ -31,6 +31,12 @@ const NavBar = () => {
                 Favourites
               </Link>
             </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/lists">
+                Lists
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
