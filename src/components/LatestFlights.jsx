@@ -12,7 +12,10 @@ import {
 import testData from "../services/testData";
 import Flight from "./Flight";
 
-const LatestFlights = () => {
+import PropTypes from "prop-types";
+
+const LatestFlights = (props) => {
+  const queryClient = useQueryClient();
   const [name, setName] = useState("");
 
   const nameRef = useRef();
@@ -25,6 +28,10 @@ const LatestFlights = () => {
   // const getName = (name) => {
   //   setName(name);
   // };
+
+  LatestFlights.propTypes = {
+    id: PropTypes.string.isRequired,
+  };
 
   return (
     <>
@@ -71,7 +78,11 @@ const LatestFlights = () => {
       {testData.data.map((flight, index) => {
         return (
           <div className={`row ${index % 2 === 0 ? " even" : ""}`} key={index}>
-            <Flight flight={flight} setName={(name) => setName(name)} />
+            <Flight
+              flight={flight}
+              setName={(name) => setName(name)}
+              id={props.id}
+            />
           </div>
         );
       })}

@@ -9,7 +9,7 @@ const Flight = (props) => {
   const queryClient = useQueryClient();
 
   const doGetName = useMutation({
-    mutationFn: (name) => storeFavourites(name),
+    mutationFn: ({ name, id }) => storeFavourites(name, id),
     onSuccess: () => {
       queryClient.invalidateQueries(["favourites"]);
       props.setName(props.flight.flight.iata);
@@ -19,13 +19,14 @@ const Flight = (props) => {
   Flight.propTypes = {
     flight: PropTypes.object,
     setName: PropTypes.func,
+    id: PropTypes.string.isRequired,
   };
   return (
     <>
       <div className="col-md-1">
         <button
           className="btn btn-primary me-2"
-          onClick={() => doGetName.mutate(props.flight)}
+          onClick={() => doGetName.mutate({ name: props.flight, id: props.id })}
         >
           Add Favourite
         </button>

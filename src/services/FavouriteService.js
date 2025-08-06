@@ -1,5 +1,11 @@
-const storeFavourites = async (data) => {
-  const uri = import.meta.env.VITE_AIRTABLE_URI;
+const storeFavourites = async (data, id) => {
+  const uri =
+    import.meta.env.VITE_AIRTABLE_BASE_URI +
+    import.meta.env.VITE_AIRTABLE_BASE_ID +
+    "/" +
+    id;
+
+  console.log("Storing favourite with URI:", uri);
 
   try {
     const res = await fetch(uri, {
@@ -63,13 +69,17 @@ const getFavourites = async (id) => {
   }
 };
 
-const delFavourite = async (data) => {
+const delFavourite = async (id) => {
+  const uri =
+    import.meta.env.VITE_AIRTABLE_BASE_URI +
+    import.meta.env.VITE_AIRTABLE_BASE_ID +
+    "/" +
+    id;
+
   try {
-    let fullURI = uri + "/" + data;
+    console.log(uri);
 
-    console.log(data);
-
-    const res = await fetch(fullURI, {
+    const res = await fetch(uri, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_APITOKEN}`,

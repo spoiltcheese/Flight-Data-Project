@@ -8,9 +8,16 @@ import PropTypes from "prop-types";
 import { useParams } from "react-router";
 
 function App() {
-  const [currentList, setCurrentList] = useState(
-    import.meta.env.VITE_AIRTABLE_DEFAULT_LIST_ID
-  );
+  const [currentList, setCurrentList] = useState(() => {
+    const savedData = sessionStorage.getItem("currentList");
+    return savedData
+      ? JSON.parse(savedData)
+      : import.meta.env.VITE_AIRTABLE_DEFAULT_LIST_ID;
+  });
+
+  useEffect(() => {
+    sessionStorage.setItem("currentList", JSON.stringify(currentList));
+  }, [currentList]);
 
   const [currentListName, setCurrentListName] = useState(() => {
     const savedData = sessionStorage.getItem("currentListName");
@@ -38,14 +45,10 @@ function App() {
         <NavBar listName={currentListName} />
         <Routes>
           <Route path="/" element={<Navigate replace to="/flights" />} />
-          <Route path="/flights" element={<LatestFlights />} />
+          <Route path="/flights" element={<LatestFlights id={currentList} />} />
           <Route
             path="/favourites"
-            element={
-              <AllFavourites
-                id={import.meta.env.VITE_AIRTABLE_DEFAULT_LIST_ID}
-              />
-            }
+            element={<AllFavourites id={currentList} />}
           />
           <Route
             path="/favourites/:listID"
