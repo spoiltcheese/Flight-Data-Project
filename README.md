@@ -17,7 +17,7 @@ The flight data project pulls in realtime flight infomation from [AviationStack]
 
 ![Component Tree](image.png "Component Tree")
 
-# Airtable Columns
+# Airtable List Columns
 
 All columns are of the `singleLineText` type.
 
@@ -33,6 +33,13 @@ All columns are of the `singleLineText` type.
 - ArrivalGate
 - ArrivalScheduled
 - ArrivalActual
+
+# Airtable Metalist Columns
+
+All columns are of the `singleLineText` type.
+
+- ListID
+- ListName
 
 # Known limitations
 
