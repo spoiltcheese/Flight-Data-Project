@@ -66,7 +66,7 @@ const LatestFlights = (props) => {
         flightQuery.data.data.map((flight, index) => {
           return (
             <div className="row" key={index}>
-              <Flight flight={flight} />
+              <Flight flight={flight} id={props.id} />
             </div>
           );
         })}
