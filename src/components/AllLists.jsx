@@ -71,7 +71,7 @@ const AllLists = (props) => {
         listQuery.data.records.map((list, index) => {
           return (
             <div className="row" key={index}>
-              <div className="col-md-2">
+              <div className="col-md-2 mb-2">
                 <a
                   href={`../favourites/${list.fields.ListID}`}
                   onClick={() =>
