@@ -41,6 +41,8 @@ All columns are of the `singleLineText` type.
 - ListID
 - ListName
 
+> You will need to create a table called DefaultList, manually find the ID, and add the data to this metalist before attempting to store a favourite.
+
 # Known limitations
 
 ## Aviationstack
