@@ -9,16 +9,21 @@ const Flight = (props) => {
   const queryClient = useQueryClient();
 
   const doGetName = useMutation({
-    mutationFn: ({ name, id }) => storeFavourites(name, id),
+    mutationFn: ({ name, id }) => {
+      storeFavourites(name, id);
+      props.setProcessing(true);
+    },
     onSuccess: () => {
       queryClient.invalidateQueries(["favourites"]);
       props.setName(props.flight.flight.iata);
+      props.setProcessing(false);
     },
   });
 
   Flight.propTypes = {
     flight: PropTypes.object,
     setName: PropTypes.func,
+    setProcessing: PropTypes.func,
     id: PropTypes.string.isRequired,
   };
 

@@ -16,6 +16,7 @@ import PropTypes from "prop-types";
 const LatestFlights = (props) => {
   const queryClient = useQueryClient();
   const [name, setName] = useState("");
+  const [processing, setProcessing] = useState(false);
 
   const nameRef = useRef();
 
@@ -34,6 +35,12 @@ const LatestFlights = (props) => {
 
   return (
     <div className="container-fluid">
+      {processing ? (
+        <div className="favourite-message" style={{ textAlign: "center" }}>
+          Processing...
+        </div>
+      ) : null}
+
       {name ? (
         <div
           className="favourite-message"
@@ -66,7 +73,12 @@ const LatestFlights = (props) => {
         flightQuery.data.data.map((flight, index) => {
           return (
             <div className="row" key={index}>
-              <Flight flight={flight} id={props.id} />
+              <Flight
+                flight={flight}
+                id={props.id}
+                setName={(name) => setName(name)}
+                setProcessing={(state) => setProcessing(state)}
+              />
             </div>
           );
         })}
