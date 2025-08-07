@@ -28,3 +28,8 @@ body {
 .even {
   background-color: rgb(181, 181, 181);
 }
+
+.tableHeader {
+  text-align: center;
+  border: 1px solid black;
+}

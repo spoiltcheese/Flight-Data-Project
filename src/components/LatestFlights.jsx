@@ -33,7 +33,7 @@ const LatestFlights = (props) => {
   };
 
   return (
-    <>
+    <div className="container-fluid">
       {name ? (
         <div
           className="favourite-message"
@@ -41,25 +41,24 @@ const LatestFlights = (props) => {
         >{`${name} added to favourites`}</div>
       ) : null}
 
-      <div className="row centerText">
-        <div className="col-md-3">Flight</div>
-        <div className="col-md-4">Departure</div>
-        <div className="col-md-4">Arrival</div>
-        <div className="col-md-1">&nbsp;</div>
+      <div className="row">
+        <div className="col-md-3 border text-center">Flight</div>
+        <div className="col-md-4 border text-center">Departure</div>
+        <div className="col-md-4 border text-center">Arrival</div>
       </div>
 
-      <div className="row centerText">
-        <div className="col-md-1">&nbsp;</div>
-        <div className="col-md-1">Number</div>
-        <div className="col-md-1">Status</div>
-        <div className="col-md-1">Airport</div>
-        <div className="col-md-1">Terminal</div>
-        <div className="col-md-1">Gate</div>
-        <div className="col-md-1">Scheduled</div>
-        <div className="col-md-1">Airport</div>
-        <div className="col-md-1">Terminal</div>
-        <div className="col-md-1">Gate</div>
-        <div className="col-md-1">Scheduled</div>
+      <div className="row mb-3">
+        <div className="col-md-1 border text-center">&nbsp;</div>
+        <div className="col-md-1 border text-center">Number</div>
+        <div className="col-md-1 border text-center">Status</div>
+        <div className="col-md-1 border text-center">Airport</div>
+        <div className="col-md-1 border text-center">Terminal</div>
+        <div className="col-md-1 border text-center">Gate</div>
+        <div className="col-md-1 border text-center">Scheduled</div>
+        <div className="col-md-1 border text-center">Airport</div>
+        <div className="col-md-1 border text-center">Terminal</div>
+        <div className="col-md-1 border text-center">Gate</div>
+        <div className="col-md-1 border text-center">Scheduled</div>
       </div>
 
       {flightQuery.isSuccess &&
@@ -71,19 +70,7 @@ const LatestFlights = (props) => {
             </div>
           );
         })}
-
-      {/* {testData.data.map((flight, index) => {
-        return (
-          <div className={`row ${index % 2 === 0 ? " even" : ""}`} key={index}>
-            <Flight
-              flight={flight}
-              setName={(name) => setName(name)}
-              id={props.id}
-            />
-          </div>
-        );
-      })} */}
-    </>
+    </div>
   );
 };
 

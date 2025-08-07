@@ -18,27 +18,25 @@ const AllFavourites = (props) => {
 
   return (
     <div>
-      <div className="row centerText">
-        <div className="col-md-3">Flight</div>
-        <div className="col-md-4">Departure</div>
-        <div className="col-md-4">Arrival</div>
-        <div className="col-md-1">&nbsp;</div>
+      <div className="row centerText ">
+        <div className="col-md-3 border text-center">Flight</div>
+        <div className="col-md-4 border text-center">Departure</div>
+        <div className="col-md-4 border text-center">Arrival</div>
       </div>
 
-      <div className="row centerText">
-        <div className="col-md-1">&nbsp;</div>
-        <div className="col-md-1">Number</div>
-        <div className="col-md-1">Status</div>
-        <div className="col-md-1">Airport</div>
-        <div className="col-md-1">Terminal</div>
-        <div className="col-md-1">Gate</div>
-        <div className="col-md-1">Scheduled</div>
-        {/* <div className="col-md-1">Actual</div> */}
-        <div className="col-md-1">Airport</div>
-        <div className="col-md-1">Terminal</div>
-        <div className="col-md-1">Gate</div>
-        <div className="col-md-1">Scheduled</div>
-        {/* <div className="col-md-1">Actual</div> */}
+      <div className="row centerText mb-3">
+        <div className="col-md-1 border text-center">&nbsp;</div>
+        <div className="col-md-1 border text-center">Number</div>
+        <div className="col-md-1 border text-center">Status</div>
+        <div className="col-md-1 border text-center">Airport</div>
+        <div className="col-md-1 border text-center">Terminal</div>
+        <div className="col-md-1 border text-center">Gate</div>
+        <div className="col-md-1 border text-center">Scheduled</div>
+
+        <div className="col-md-1 border text-center">Airport</div>
+        <div className="col-md-1 border text-center">Terminal</div>
+        <div className="col-md-1 border text-center">Gate</div>
+        <div className="col-md-1 border text-center">Scheduled</div>
       </div>
       {favQuery.isSuccess &&
         Array.isArray(favQuery.data.records) &&
