@@ -125,7 +125,7 @@ const getList = async () => {
     });
     const responseData = await res.json();
     if (!res.ok) {
-      throw new Error("Failed to add favourite.");
+      throw new Error("Failed to getList.");
     }
     return responseData;
   } catch (err) {

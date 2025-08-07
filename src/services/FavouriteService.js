@@ -59,7 +59,7 @@ const getFavourites = async (id) => {
     });
     const responseData = await res.json();
     if (!res.ok) {
-      throw new Error("Failed to add favourite.");
+      throw new Error("Failed to get favourites.");
     }
     return responseData;
   } catch (err) {
@@ -84,7 +84,7 @@ const delFavourite = async (id) => {
     });
     const responseData = await res.json();
     if (!res.ok) {
-      throw new Error("Failed to add favourite.");
+      throw new Error("Failed to delete favourite.");
     }
     return responseData;
   } catch (err) {

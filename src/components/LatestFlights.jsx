@@ -25,10 +25,6 @@ const LatestFlights = (props) => {
     queryFn: getLatestFlights,
   });
 
-  // const getName = (name) => {
-  //   setName(name);
-  // };
-
   LatestFlights.propTypes = {
     id: PropTypes.string.isRequired,
   };

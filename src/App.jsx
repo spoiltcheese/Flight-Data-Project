@@ -52,7 +52,6 @@ function App() {
             path="/favourites/:listID"
             element={<FavouritesWithParams />}
           />
-          {/* <Route path="/favourites" element={<AllFavourites />} /> */}
           <Route
             path="/lists"
             element={

@@ -7,9 +7,7 @@ const getLatestFlights = async () => {
     const res = await fetch(uri);
     const data = await res.json();
     if (!res.ok) {
-      // Throw an error if we get a response that doesn't
-      // hold valid starship data.
-      throw new Error("Failed to fetch starships.");
+      throw new Error("Failed to fetch flights.");
     }
     return data;
   } catch (err) {
