@@ -8,8 +8,7 @@ import {
   QueryClientProvider,
 } from "@tanstack/react-query";
 
-//import { getLatestFlights } from "../services/GetLatestFlights";
-import testData from "../services/testData";
+import { getLatestFlights } from "../services/GetLatestFlights";
 import Flight from "./Flight";
 
 import PropTypes from "prop-types";
@@ -20,10 +19,10 @@ const LatestFlights = (props) => {
 
   const nameRef = useRef();
 
-  // const flightQuery = useQuery({
-  //   queryKey: ["latestFlights"],
-  //   queryFn: getLatestFlights,
-  // });
+  const flightQuery = useQuery({
+    queryKey: ["latestFlights"],
+    queryFn: getLatestFlights,
+  });
 
   // const getName = (name) => {
   //   setName(name);
@@ -35,16 +34,6 @@ const LatestFlights = (props) => {
 
   return (
     <>
-      {/*flightQuery.isSuccess &&
-        Array.isArray(flightQuery.data?.data) &&
-        flightQuery.data.data.map((flight, index) => {
-          return (
-            <div className="row" key={index}>
-            <Flight flight={flight} />
-            </div>
-          );
-        })} */}
-
       {name ? (
         <div
           className="favourite-message"
@@ -67,15 +56,23 @@ const LatestFlights = (props) => {
         <div className="col-md-1">Terminal</div>
         <div className="col-md-1">Gate</div>
         <div className="col-md-1">Scheduled</div>
-        {/* <div className="col-md-1">Actual</div> */}
         <div className="col-md-1">Airport</div>
         <div className="col-md-1">Terminal</div>
         <div className="col-md-1">Gate</div>
         <div className="col-md-1">Scheduled</div>
-        {/* <div className="col-md-1">Actual</div> */}
       </div>
 
-      {testData.data.map((flight, index) => {
+      {flightQuery.isSuccess &&
+        Array.isArray(flightQuery.data?.data) &&
+        flightQuery.data.data.map((flight, index) => {
+          return (
+            <div className="row" key={index}>
+              <Flight flight={flight} />
+            </div>
+          );
+        })}
+
+      {/* {testData.data.map((flight, index) => {
         return (
           <div className={`row ${index % 2 === 0 ? " even" : ""}`} key={index}>
             <Flight
@@ -85,7 +82,7 @@ const LatestFlights = (props) => {
             />
           </div>
         );
-      })}
+      })} */}
     </>
   );
 };
