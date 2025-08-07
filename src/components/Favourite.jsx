@@ -19,6 +19,9 @@ const Favourite = (props) => {
   Favourite.propTypes = {
     flight: PropTypes.object,
   };
+
+  const depSchedArr = props.flight.fields.DepartureScheduled.split(/[T+]/);
+  const arrSchedArr = props.flight.fields.ArrivalScheduled.split(/[T+]/);
   return (
     <>
       <div className="col-md-1">
@@ -34,11 +37,11 @@ const Favourite = (props) => {
       <div className="col-md-1">{props.flight.fields.DepartureAirport}</div>
       <div className="col-md-1">{props.flight.fields.DepartureTerminal}</div>
       <div className="col-md-1">{props.flight.fields.DepartureGate}</div>
-      <div className="col-md-1">{props.flight.fields.DepartureScheduled}</div>
+      <div className="col-md-1">{depSchedArr[0] + " " + depSchedArr[1]}</div>
       <div className="col-md-1">{props.flight.fields.ArrivalAirport}</div>
       <div className="col-md-1">{props.flight.fields.ArrivalTerminal}</div>
       <div className="col-md-1">{props.flight.fields.ArrivalGate}</div>
-      <div className="col-md-1">{props.flight.fields.ArrivalScheduled}</div>
+      <div className="col-md-1">{arrSchedArr[0] + " " + arrSchedArr[1]}</div>
     </>
   );
 };

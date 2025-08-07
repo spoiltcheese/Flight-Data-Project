@@ -21,6 +21,9 @@ const Flight = (props) => {
     setName: PropTypes.func,
     id: PropTypes.string.isRequired,
   };
+
+  const depSchedArr = props.flight.departure.scheduled.split(/[T+]/);
+  const arrSchedArr = props.flight.arrival.scheduled.split(/[T+]/);
   return (
     <>
       <div className="col-md-1">
@@ -36,11 +39,11 @@ const Flight = (props) => {
       <div className="col-md-1">{props.flight.departure.airport}</div>
       <div className="col-md-1">{props.flight.departure.terminal}</div>
       <div className="col-md-1">{props.flight.departure.gate}</div>
-      <div className="col-md-1">{props.flight.departure.scheduled}</div>
+      <div className="col-md-1">{depSchedArr[0] + " " + depSchedArr[1]}</div>
       <div className="col-md-1">{props.flight.arrival.airport}</div>
       <div className="col-md-1">{props.flight.arrival.terminal}</div>
       <div className="col-md-1">{props.flight.arrival.gate}</div>
-      <div className="col-md-1">{props.flight.arrival.scheduled}</div>
+      <div className="col-md-1">{arrSchedArr[0] + " " + arrSchedArr[1]}</div>
     </>
   );
 };
