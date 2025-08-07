@@ -11,10 +11,6 @@ const createNewList = async (tableName) => {
     import.meta.env.VITE_AIRTABLE_BASE_ID +
     "/tables";
 
-  console.log("Creating new list with URI:", uri);
-
-  console.log("Creating new list with name:", tableName);
-
   try {
     const res = await fetch(uri, {
       method: "POST",
@@ -79,7 +75,6 @@ const createNewList = async (tableName) => {
 
     const responseData = await res.json();
     if (res.ok) {
-      console.log("List created successfully:", responseData);
       await storeList(responseData.id, tableName);
     } else {
       throw new Error("Failed to add list to base.");
@@ -87,7 +82,7 @@ const createNewList = async (tableName) => {
 
     return responseData;
   } catch (err) {
-    console.log(err);
+    return err;
   }
 };
 
@@ -116,12 +111,10 @@ const storeList = async (id, name) => {
     }
     return responseData;
   } catch (err) {
-    console.log(err);
+    return err;
   }
 };
 const getList = async () => {
-  console.log(uri);
-
   try {
     const res = await fetch(uri, {
       method: "GET",
@@ -136,7 +129,7 @@ const getList = async () => {
     }
     return responseData;
   } catch (err) {
-    console.log(err);
+    return err;
   }
 };
 

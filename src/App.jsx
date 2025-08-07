@@ -28,8 +28,6 @@ function App() {
     sessionStorage.setItem("currentListName", JSON.stringify(currentListName));
   }, [currentListName]);
 
-  console.log("Current List ID:", currentList);
-
   function FavouritesWithParams() {
     const { listID } = useParams();
     return <AllFavourites id={listID} />;

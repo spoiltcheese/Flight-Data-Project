@@ -4,7 +4,6 @@ const getLatestFlights = async () => {
       import.meta.env.VITE_AVIATIONSTACK_URI +
       "?access_key=" +
       import.meta.env.VITE_AVIATIONSTACK_APIKEY;
-    console.dir(uri);
     const res = await fetch(uri);
     const data = await res.json();
     if (!res.ok) {
@@ -14,7 +13,7 @@ const getLatestFlights = async () => {
     }
     return data;
   } catch (err) {
-    console.log(err);
+    return err;
   }
 };
 

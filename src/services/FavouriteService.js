@@ -5,8 +5,6 @@ const storeFavourites = async (data, id) => {
     "/" +
     id;
 
-  console.log("Storing favourite with URI:", uri);
-
   try {
     const res = await fetch(uri, {
       method: "POST",
@@ -41,7 +39,7 @@ const storeFavourites = async (data, id) => {
     }
     return responseData;
   } catch (err) {
-    console.log(err);
+    return err;
   }
 };
 
@@ -65,7 +63,7 @@ const getFavourites = async (id) => {
     }
     return responseData;
   } catch (err) {
-    console.log(err);
+    return err;
   }
 };
 
@@ -77,8 +75,6 @@ const delFavourite = async (id) => {
     id;
 
   try {
-    console.log(uri);
-
     const res = await fetch(uri, {
       method: "DELETE",
       headers: {
@@ -92,7 +88,7 @@ const delFavourite = async (id) => {
     }
     return responseData;
   } catch (err) {
-    console.log(err);
+    return err;
   }
 };
 
