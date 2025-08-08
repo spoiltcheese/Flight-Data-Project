@@ -64,6 +64,8 @@ const LatestFlights = (props) => {
         <div className="col-md-1 border text-center">Scheduled</div>
       </div>
 
+      {flightQuery.isLoading && <div>Loading...</div>}
+
       {flightQuery.isSuccess &&
         Array.isArray(flightQuery.data?.data) &&
         flightQuery.data.data.map((flight, index) => {

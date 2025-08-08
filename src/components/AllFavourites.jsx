@@ -38,6 +38,9 @@ const AllFavourites = (props) => {
         <div className="col-md-1 border text-center">Gate</div>
         <div className="col-md-1 border text-center">Scheduled</div>
       </div>
+
+      {favQuery.isLoading && <div>Loading...</div>}
+
       {favQuery.isSuccess &&
         Array.isArray(favQuery.data.records) &&
         favQuery.data.records.map((flight, index) => {

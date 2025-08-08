@@ -66,6 +66,8 @@ const AllLists = (props) => {
         {errMsg && <span>List name cannot be blank</span>}
       </div>
 
+      {listQuery.isLoading && <div>Loading...</div>}
+
       {listQuery.isSuccess &&
         Array.isArray(listQuery.data.records) &&
         listQuery.data.records.map((list, index) => {
