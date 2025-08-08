@@ -50,8 +50,6 @@ const getFavourites = async (id) => {
     "/" +
     id;
   try {
-    console.log("ID: ", id);
-
     const res = await fetch(uri, {
       method: "GET",
       headers: {
@@ -79,7 +77,6 @@ const delFavourite = async (ListID, flightID) => {
     flightID;
 
   try {
-    console.log(uri);
     const res = await fetch(uri, {
       method: "DELETE",
       headers: {
