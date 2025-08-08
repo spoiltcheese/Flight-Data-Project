@@ -49,7 +49,7 @@ const AllFavourites = (props) => {
               className={`row ${index % 2 === 0 ? " even" : ""}`}
               key={index}
             >
-              <Favourite flight={flight} />
+              <Favourite flight={flight} id={props.id} />
             </div>
           );
         })}

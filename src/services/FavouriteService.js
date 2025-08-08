@@ -50,6 +50,8 @@ const getFavourites = async (id) => {
     "/" +
     id;
   try {
+    console.log("ID: ", id);
+
     const res = await fetch(uri, {
       method: "GET",
       headers: {
@@ -67,14 +69,17 @@ const getFavourites = async (id) => {
   }
 };
 
-const delFavourite = async (id) => {
+const delFavourite = async (ListID, flightID) => {
   const uri =
     import.meta.env.VITE_AIRTABLE_BASE_URI +
     import.meta.env.VITE_AIRTABLE_BASE_ID +
     "/" +
-    id;
+    ListID +
+    "/" +
+    flightID;
 
   try {
+    console.log(uri);
     const res = await fetch(uri, {
       method: "DELETE",
       headers: {

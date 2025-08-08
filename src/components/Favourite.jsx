@@ -10,7 +10,7 @@ const Favourite = (props) => {
   const queryClient = useQueryClient();
 
   const doDelete = useMutation({
-    mutationFn: (name) => delFavourite(name),
+    mutationFn: ({ listID, flight }) => delFavourite(listID, flight),
     onSuccess: () => {
       queryClient.invalidateQueries(["favourites"]);
     },
@@ -18,6 +18,7 @@ const Favourite = (props) => {
 
   Favourite.propTypes = {
     flight: PropTypes.object,
+    id: PropTypes.string.isRequired,
   };
 
   const depSchedArr = props.flight.fields.DepartureScheduled.split(/[T+]/);
@@ -27,7 +28,9 @@ const Favourite = (props) => {
       <div className="col-md-1">
         <button
           className="btn btn-danger"
-          onClick={() => doDelete.mutate(props.flight.id)}
+          onClick={() =>
+            doDelete.mutate({ listID: props.id, flight: props.flight.id })
+          }
         >
           Delete
         </button>
